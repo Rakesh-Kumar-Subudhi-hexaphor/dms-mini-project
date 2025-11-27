@@ -11,7 +11,7 @@
     </style>
     <div class="bg-white m-3 p-3">
         <div id="success-msg"
-            style="display:none; position:fixed; top:10px; right:10px; 
+            style="display:none; position:fixed; top:10px; right:10px;
      background:green; color:white; padding:10px; border-radius:5px; z-index:1000;">
         </div>
         <h4 class="py-3 mb-4"><span class="text-muted fw-light"></span>Order</h4>
@@ -73,7 +73,7 @@
 
                                 <td>
                                     @if ($order->status == 'unpaid')
-                                        <select class="payment-status-dropdown" data-id="{{ $order->id }}">
+                                        <select class="payment-status-dropdown" data-id="{{ $order->id }}" {{ $order->permission == 'rejected' ? 'disabled' : '' }}>
                                             <option value="unpaid" selected>Unpaid</option>
                                             <option value="Paid">Paid</option>
                                         </select>
@@ -86,7 +86,7 @@
                                 <!-- Order Status Dropdown -->
                                 <td>
                                     @php $stages = ['Pending', 'Processing', 'Dispatched', 'Delivered']; @endphp
-                                    <select class="status-dropdown select-control" data-id="{{ $order->id }}">
+                                    <select class="status-dropdown select-control" data-id="{{ $order->id }}" {{ $order->permission == 'rejected' ? 'disabled' : '' }}>
                                         @foreach ($stages as $stage)
                                             <option value="{{ $stage }}"
                                                 {{ $stage === $order->order_status ? 'selected' : '' }}
