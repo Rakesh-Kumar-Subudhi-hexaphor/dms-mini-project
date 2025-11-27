@@ -86,7 +86,7 @@
                                         </p>
 
                                         <div class="product-footer">
-                                            <span class="product-price">${{ $product->price }}</span>
+                                            <span class="product-price">₹{{ $product->price }}</span>
 
                                             <!-- Button to open modal -->
                                             <button class="order-btn" data-bs-toggle="modal"
